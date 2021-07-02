@@ -6,14 +6,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace FindCommic
+namespace FindComic
 {
     public class Comic
     {
         public string Writer { get; set; }
         public string Name { get; set; }
-        public int? StartNumber { get; set; }
-        public int? EndNumber { get; set; }
+        public Range? RangeNumber { get; set; }
+        public int? Number { get; set; }
         public string Extension { get; set; }
 
         public static Comic ConvertFromFile(FileInfo file)
@@ -22,9 +22,10 @@ namespace FindCommic
             {
                 Name = MakeName(file.Name),
                 Writer = MakeWriter(file.Name),
-                Extension = file.Extension
+                Extension = file.Extension,
+                Number = MakeNumber(file.Name),
+                RangeNumber = MakeNumberRange(file.Name)
             };
-            MakeNumber(c, file.Name);
             return c;
         }
 
@@ -47,24 +48,46 @@ namespace FindCommic
             return matchValue.ToString();
         }
 
-        private static void MakeNumber(Comic c, string fileName)
+        private static int? MakeNumber(string fileName)
         {
-            var matchValue = new StringBuilder(Regex.Match(fileName, "第?[0-9]{2}-?[0-9]{2}?巻?s?b?\\.").Value);
+            var numberString = GetNumberString(fileName);
+            
+            if (numberString.Length == 0)
+            {
+                return null;
+            }
+
+            if (new[] { '-', '～' }.ToList().Any(c => numberString.Contains(c)))
+            {
+                return null;
+            }
+
+            return int.Parse(numberString);
+        }
+
+        private static Range? MakeNumberRange(string fileName)
+        {
+            var numberString = GetNumberString(fileName);
+
+            if (numberString.Length == 0)
+            {
+                return null;
+            }
+
+            if (!new[] { '-', '～' }.ToList().Any(c => numberString.Contains(c)))
+            {
+                return null;
+            }
+            var splitted = numberString.Split('-', '～');
+            return new Range(int.Parse(splitted[0]), int.Parse(splitted[1]));
+        }
+
+        private static string GetNumberString(string fileName)
+        {
+            var matchValue = new StringBuilder(Regex.Match(fileName, @"第?[0-9]{2}(-[0-9]{2})?(巻|s|b)?\.").Value);
             var replace = new[] { "第", "巻", ".", "s", "b" };
             replace.ToList().ForEach(r => matchValue = matchValue.Replace(r, string.Empty));
-
-            if (matchValue.Length == 0)
-            {
-                return;
-            }
-
-            var numbers = matchValue.ToString();
-            var splitted = numbers.Split('-', '～');
-            if (splitted.Length > 1)
-            {
-                c.EndNumber = int.Parse(splitted[1]);
-            }
-            c.StartNumber = int.Parse(splitted[0]);
+            return matchValue.ToString();
         }
     }
 }
