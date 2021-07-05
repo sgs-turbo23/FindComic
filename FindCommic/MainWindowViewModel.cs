@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FindComic.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace FindComic
             foreach (var file in Directory.GetFiles(path).Select(f => new FileInfo(f)).ToList())
             {
                 // [writer] title 第n巻.[zip|rar]
-                Comics.Add(Comic.ConvertFromFile(file));
+                Comics.Add(Comic.ConvertFromFileName(file.Name));
             }
 
             foreach (var group in Comics.GroupBy(c => new { c.Name, c.Writer }))
@@ -30,6 +31,7 @@ namespace FindComic
                     group.Where(g => g.RangeNumber.HasValue).Select(g => g.RangeNumber.Value).ToList(), 
                     group.Where(g => g.Number.HasValue).Select(g => g.Number.Value).ToList()));
             }
+            ViewSummaryComics.OrderBy(vsc => vsc.Writer);
         }
 
         //public List<>
@@ -58,7 +60,7 @@ namespace FindComic
                 }
                 var ordered = completeNumber.OrderBy(x => x).ToList();
                 LastNumber = ordered.Max();
-                LostNumber = string.Join(",", Enumerable.Range(ordered.Min(), ordered.Max() - ordered.Min()).Except(ordered));
+                LostNumber = string.Join(",", Enumerable.Range(1, ordered.Max()).Except(ordered));
             }
         }
 

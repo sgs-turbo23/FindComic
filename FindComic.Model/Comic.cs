@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace FindComic
+namespace FindComic.Model
 {
     public class Comic
     {
@@ -16,15 +16,15 @@ namespace FindComic
         public int? Number { get; set; }
         public string Extension { get; set; }
 
-        public static Comic ConvertFromFile(FileInfo file)
+        public static Comic ConvertFromFileName(string fileName)
         {
             var c = new Comic()
             {
-                Name = MakeName(file.Name),
-                Writer = MakeWriter(file.Name),
-                Extension = file.Extension,
-                Number = MakeNumber(file.Name),
-                RangeNumber = MakeNumberRange(file.Name)
+                Name = MakeName(fileName),
+                Writer = MakeWriter(fileName),
+                //Extension = fileExtension,
+                Number = MakeNumber(fileName),
+                RangeNumber = MakeNumberRange(fileName)
             };
             return c;
         }
@@ -33,6 +33,11 @@ namespace FindComic
         {
             var nameStartIndex = fileName.IndexOf("] ");
             var nameEndIndex = fileName.LastIndexOf(" ");
+            if (!Regex.Match(fileName, @"[0-9]{2}").Success)
+            {
+                nameEndIndex = fileName.LastIndexOf(".");
+            }
+
             if (nameStartIndex + 1 == nameEndIndex)
             {
                 return fileName.Substring(nameStartIndex + 2);
@@ -84,8 +89,8 @@ namespace FindComic
 
         private static string GetNumberString(string fileName)
         {
-            var matchValue = new StringBuilder(Regex.Match(fileName, @"第?[0-9]{2}(-[0-9]{2})?(巻|s|b)?\.").Value);
-            var replace = new[] { "第", "巻", ".", "s", "b" };
+            var matchValue = new StringBuilder(Regex.Match(fileName, @"第?[0-9]{2}(巻|s|b|e|卷)?((-|～)第?[0-9]{2})?(巻|s|b|e|卷)? ?\.").Value);
+            var replace = new[] { "第", "巻", ".", "s", "b", "e", "卷", " " };
             replace.ToList().ForEach(r => matchValue = matchValue.Replace(r, string.Empty));
             return matchValue.ToString();
         }

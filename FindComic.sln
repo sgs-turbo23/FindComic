@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic", "FindCommic\FindComic.csproj", "{7414ECE3-D933-451D-98E2-BFB639725302}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindComic.Test", "FindComic.Test\FindComic.Test.csproj", "{0120DABE-79C7-40DA-A4D2-EEA2389E6617}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindComic.Model", "FindComic.Model\FindComic.Model.csproj", "{8D7B5DB8-57A3-4108-992D-DAED84236611}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7414ECE3-D933-451D-98E2-BFB639725302}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7414ECE3-D933-451D-98E2-BFB639725302}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7414ECE3-D933-451D-98E2-BFB639725302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0120DABE-79C7-40DA-A4D2-EEA2389E6617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0120DABE-79C7-40DA-A4D2-EEA2389E6617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0120DABE-79C7-40DA-A4D2-EEA2389E6617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0120DABE-79C7-40DA-A4D2-EEA2389E6617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D7B5DB8-57A3-4108-992D-DAED84236611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7B5DB8-57A3-4108-992D-DAED84236611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7B5DB8-57A3-4108-992D-DAED84236611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7B5DB8-57A3-4108-992D-DAED84236611}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
