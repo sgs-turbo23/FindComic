@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FindComic.DataAccess\FindComic.DataAccess.csproj" />
     <ProjectReference Include="..\FindComic.Model\FindComic.Model.csproj" />
   </ItemGroup>
 

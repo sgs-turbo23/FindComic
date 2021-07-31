@@ -27,6 +27,5 @@ namespace FindComic
             this.DataContext = new MainWindowViewModel(@"E:\HD-CELU2\一般コミック");
         }
 
-        
     }
 }
