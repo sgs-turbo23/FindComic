@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic", "FindCommic\FindComic.csproj", "{7414ECE3-D933-451D-98E2-BFB639725302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic", "FindComic\FindComic.csproj", "{7414ECE3-D933-451D-98E2-BFB639725302}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic.Test", "FindComic.Test\FindComic.Test.csproj", "{0120DABE-79C7-40DA-A4D2-EEA2389E6617}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic.Model", "FindComic.Model\FindComic.Model.csproj", "{8D7B5DB8-57A3-4108-992D-DAED84236611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindComic.DataAccess", "FindComic.DataAccess\FindComic.DataAccess.csproj", "{9FC2B5F4-BD1F-416D-9754-CFF6F8EBA710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic.DataAccess", "FindComic.DataAccess\FindComic.DataAccess.csproj", "{9FC2B5F4-BD1F-416D-9754-CFF6F8EBA710}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
