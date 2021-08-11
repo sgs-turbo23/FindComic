@@ -8,13 +8,21 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
             <RowDefinition Height="*" />
             <RowDefinition Height="23" />
         </Grid.RowDefinitions>
-        <DataGrid ItemsSource="{Binding ViewSummaryComics}" Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Row="0">
+            <TextBox Grid.Column="0" Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}" Width="300"  />
+        </DockPanel>
+        <DataGrid Name="dataGrid" ItemsSource="{Binding ViewSummaryComics}" Grid.Row="1" Grid.ColumnSpan="2" CurrentCellChanged="DataGrid_CurrentCellChanged">
         </DataGrid>
-        <DockPanel >
-            <StatusBar Grid.Row="1" HorizontalAlignment="Stretch" Height="23" Margin="0,10,0,0" VerticalAlignment="Bottom">
+        <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
+            <StatusBar HorizontalAlignment="Stretch" Height="23" Margin="0,10,0,0" VerticalAlignment="Bottom">
                 <TextBlock Text="{Binding Status}" />
             </StatusBar>
         </DockPanel>
