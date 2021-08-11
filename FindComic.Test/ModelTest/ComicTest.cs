@@ -70,7 +70,7 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest7()
         {
-            var c = Comic.ConvertFromFileName("[おりもとみまな] ばくおん!! 第04-05巻 .rar");
+            var c = Comic.ConvertFromFileName("[おりもとみまな] ばくおん!! 第04-05巻.rar");
             Assert.Equal("おりもとみまな", c.Writer);
             Assert.Equal("ばくおん!!", c.Name);
             Assert.Equal(4, c.RangeNumber.Value.Start);
