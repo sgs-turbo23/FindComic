@@ -11,6 +11,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic.Model", "FindComi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindComic.DataAccess", "FindComic.DataAccess\FindComic.DataAccess.csproj", "{9FC2B5F4-BD1F-416D-9754-CFF6F8EBA710}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FAFD7D34-7BDC-4134-A8A8-99E3787E961B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{64E4A86E-7604-4F13-8749-9E0CF0A4D5AA}"
+	ProjectSection(SolutionItems) = preProject
+		ISSUE_TEMPLATE.md = ISSUE_TEMPLATE.md
+		PULL_REQUEST_TEMPLATE.md = PULL_REQUEST_TEMPLATE.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +50,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64E4A86E-7604-4F13-8749-9E0CF0A4D5AA} = {FAFD7D34-7BDC-4134-A8A8-99E3787E961B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C541326-D492-40FC-908A-ABE8AA62BEA6}
