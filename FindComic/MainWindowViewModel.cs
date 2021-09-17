@@ -102,14 +102,14 @@ namespace FindComic
 
         public class ViewSummaryComic
         {
-            public string Writer { get; set; }
-            public string Title { get; set; }
+            public string Writer { get; }
+            public string Title { get; }
 
-            public string LastNumber { get; set; }
+            public string LastNumber { get; }
 
-            public string LostNumber { get; set; }
+            public string LostNumber { get; }
 
-            public string OriginName { get { return $"[{Writer}] {Title} "; } set { } }
+            public string OriginName { get { return $"[{Writer}] {Title} "; } }
 
             public ViewSummaryComic(string writer, string title, List<Range> ranges, List<int> numbers)
             {
