@@ -70,7 +70,7 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest7()
         {
-            var c = Comic.ConvertFromFileName("[おりもとみまな] ばくおん!! 第04-05巻 .rar");
+            var c = Comic.ConvertFromFileName("[おりもとみまな] ばくおん!! 第04-05巻.rar");
             Assert.Equal("おりもとみまな", c.Writer);
             Assert.Equal("ばくおん!!", c.Name);
             Assert.Equal(4, c.RangeNumber.Value.Start);
@@ -156,7 +156,7 @@ namespace FindComic.Test.ModelTest
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(8, c.RangeNumber.Value.End);
         }
-
+        
         [Fact]
         public void ConvertFromFileTest16()
         {
@@ -164,6 +164,16 @@ namespace FindComic.Test.ModelTest
             Assert.Equal("矢吹健太朗×長谷見沙貴", c.Writer);
             Assert.Equal("To LOVEる －とらぶる－ ダークネス カラー版", c.Name);
             Assert.Equal(1, c.Number);
+        }
+
+        [Fact]
+        public void ConvertFromFileTest17()
+        {
+            var c = Comic.ConvertFromFileName("[ひよどり祥子] 死人の声をきくがよい 07-12se.zip");
+            Assert.Equal("ひよどり祥子", c.Writer);
+            Assert.Equal("死人の声をきくがよい", c.Name);
+            Assert.Equal(7, c.RangeNumber.Value.Start);
+            Assert.Equal(12, c.RangeNumber.Value.End);
         }
     }
 }

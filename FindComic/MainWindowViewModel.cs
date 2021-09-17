@@ -105,7 +105,7 @@ namespace FindComic
             public string Writer { get; set; }
             public string Title { get; set; }
 
-            public int LastNumber { get; set; }
+            public string LastNumber { get; set; }
 
             public string LostNumber { get; set; }
 
@@ -116,7 +116,11 @@ namespace FindComic
                 this.Writer = writer;
                 this.Title = title;
 
-                if (!ranges.Any() && !numbers.Any()) return;
+                if (!ranges.Any() && !numbers.Any())
+                {
+                    LastNumber = "読切";
+                    return;
+                }
 
                 var completeNumber = new List<int>(numbers);
                 foreach (var range in ranges)
@@ -124,7 +128,7 @@ namespace FindComic
                     completeNumber.AddRange(Enumerable.Range(range.Start.Value, range.End.Value - range.Start.Value + 1));
                 }
                 var ordered = completeNumber.OrderBy(x => x).ToList();
-                LastNumber = ordered.Max();
+                LastNumber = ordered.Max().ToString();
                 LostNumber = string.Join(",", Enumerable.Range(1, ordered.Max()).Except(ordered));
             }
         }
