@@ -13,27 +13,27 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest1()
         {
-            var c = Comic.ConvertFromFileName("[Ark Performance] 蒼き鋼のアルペジオ 第01巻.rar");
-            Assert.Equal("Ark Performance", c.Writer);
-            Assert.Equal("蒼き鋼のアルペジオ", c.Name);
+            var c = Comic.ConvertFromFileName("[Wri ter] Title 第01巻.rar");
+            Assert.Equal("Wri ter", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(1, c.Number);
         }
 
         [Fact]
         public void ConvertFromFileTest2()
         {
-            var c = Comic.ConvertFromFileName("[CHuN & iimAn] 可愛ければ変態でも好きになってくれますか？ 01s.zip");
-            Assert.Equal("CHuN & iimAn", c.Writer);
-            Assert.Equal("可愛ければ変態でも好きになってくれますか？", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer & Writer] Title？ 01s.zip");
+            Assert.Equal("Writer & Writer", c.Writer);
+            Assert.Equal("Title？", c.Name);
             Assert.Equal(1, c.Number);
         }
 
         [Fact]
         public void ConvertFromFileTest3()
         {
-            var c = Comic.ConvertFromFileName("[CLAMP] xxxHOLiC ～ホリック～ 第01-12巻.zip");
-            Assert.Equal("CLAMP", c.Writer);
-            Assert.Equal("xxxHOLiC ～ホリック～", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title ～Title～ 第01-12巻.zip");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title ～Title～", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(12, c.RangeNumber.Value.End);
         }
@@ -41,9 +41,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest4()
         {
-            var c = Comic.ConvertFromFileName("[COMTA×樋辻臥命] 異世界魔法は遅れてる！ 01-02.rar");
-            Assert.Equal("COMTA×樋辻臥命", c.Writer);
-            Assert.Equal("異世界魔法は遅れてる！", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer×Writer] Title！ 01-02.rar");
+            Assert.Equal("Writer×Writer", c.Writer);
+            Assert.Equal("Title！", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(2, c.RangeNumber.Value.End);
         }
@@ -51,9 +51,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest5()
         {
-            var c = Comic.ConvertFromFileName("[Cuvie] 絢爛たるグランドセーヌ 01-03b.rar");
-            Assert.Equal("Cuvie", c.Writer);
-            Assert.Equal("絢爛たるグランドセーヌ", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title 01-03b.rar");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(3, c.RangeNumber.Value.End);
         }
@@ -61,18 +61,18 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest6()
         {
-            var c = Comic.ConvertFromFileName("[あざの耕平×COMTA] 東京レイヴンズ 東京フォックス.rar");
-            Assert.Equal("あざの耕平×COMTA", c.Writer);
-            Assert.Equal("東京レイヴンズ 東京フォックス", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer×Writer] Title Title.rar");
+            Assert.Equal("Writer×Writer", c.Writer);
+            Assert.Equal("Title Title", c.Name);
             Assert.Null(c.Number);
         }
 
         [Fact]
         public void ConvertFromFileTest7()
         {
-            var c = Comic.ConvertFromFileName("[おりもとみまな] ばくおん!! 第04-05巻.rar");
-            Assert.Equal("おりもとみまな", c.Writer);
-            Assert.Equal("ばくおん!!", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title!! 第04-05巻.rar");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title!!", c.Name);
             Assert.Equal(4, c.RangeNumber.Value.Start);
             Assert.Equal(5, c.RangeNumber.Value.End);
         }
@@ -80,9 +80,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest8()
         {
-            var c = Comic.ConvertFromFileName("[あずまきよひこ] あずまんが大王 第01巻～第04巻.zip");
-            Assert.Equal("あずまきよひこ", c.Writer);
-            Assert.Equal("あずまんが大王", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title 第01巻～第04巻.zip");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(4, c.RangeNumber.Value.End);
         }
@@ -90,9 +90,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest9()
         {
-            var c = Comic.ConvertFromFileName("[伊藤明弘] ジオブリーダーズ 第01～12巻.zip");
-            Assert.Equal("伊藤明弘", c.Writer);
-            Assert.Equal("ジオブリーダーズ", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title 第01～12巻.zip");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(12, c.RangeNumber.Value.End);
         }
@@ -100,9 +100,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest10()
         {
-            var c = Comic.ConvertFromFileName("[伊藤明弘] ジオブリーダーズ 第12～16巻.rar");
-            Assert.Equal("伊藤明弘", c.Writer);
-            Assert.Equal("ジオブリーダーズ", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title 第12～16巻.rar");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(12, c.RangeNumber.Value.Start);
             Assert.Equal(16, c.RangeNumber.Value.End);
         }
@@ -110,9 +110,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest11()
         {
-            var c = Comic.ConvertFromFileName("[佐々木倫子] チャンネルはそのまま！ 01-06e.rar");
-            Assert.Equal("佐々木倫子", c.Writer);
-            Assert.Equal("チャンネルはそのまま！", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title！ 01-06e.rar");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title！", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(6, c.RangeNumber.Value.End);
         }
@@ -120,9 +120,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest12()
         {
-            var c = Comic.ConvertFromFileName("[佐々木倫子] Heaven 01-06e.rar");
-            Assert.Equal("佐々木倫子", c.Writer);
-            Assert.Equal("Heaven", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title 01-06e.rar");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(6, c.RangeNumber.Value.End);
         }
@@ -130,9 +130,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest13()
         {
-            var c = Comic.ConvertFromFileName("[山田貴敏] Dr.コトー診療所 第01～第18巻.zip");
-            Assert.Equal("山田貴敏", c.Writer);
-            Assert.Equal("Dr.コトー診療所", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] T.Title 第01～第18巻.zip");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("T.Title", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(18, c.RangeNumber.Value.End);
         }
@@ -140,9 +140,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest14()
         {
-            var c = Comic.ConvertFromFileName("[川原正敏×飛永宏之] 修羅の門異伝ふでかげ 01-08e.rar");
-            Assert.Equal("川原正敏×飛永宏之", c.Writer);
-            Assert.Equal("修羅の門異伝ふでかげ", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer×Writer] Title 01-08e.rar");
+            Assert.Equal("Writer×Writer", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(8, c.RangeNumber.Value.End);
         }
@@ -150,9 +150,9 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest15()
         {
-            var c = Comic.ConvertFromFileName("[曽田正人] capeta カペタ 第01～08巻.rar");
-            Assert.Equal("曽田正人", c.Writer);
-            Assert.Equal("capeta カペタ", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title Title 第01～08巻.rar");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title Title", c.Name);
             Assert.Equal(1, c.RangeNumber.Value.Start);
             Assert.Equal(8, c.RangeNumber.Value.End);
         }
@@ -160,18 +160,18 @@ namespace FindComic.Test.ModelTest
         [Fact]
         public void ConvertFromFileTest16()
         {
-            var c = Comic.ConvertFromFileName("[矢吹健太朗×長谷見沙貴] To LOVEる －とらぶる－ ダークネス カラー版 第01卷.zip");
-            Assert.Equal("矢吹健太朗×長谷見沙貴", c.Writer);
-            Assert.Equal("To LOVEる －とらぶる－ ダークネス カラー版", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer×Writer] Title Title －Title－ Title カラー版 第01卷.zip");
+            Assert.Equal("Writer×Writer", c.Writer);
+            Assert.Equal("Title Title －Title－ Title カラー版", c.Name);
             Assert.Equal(1, c.Number);
         }
 
         [Fact]
         public void ConvertFromFileTest17()
         {
-            var c = Comic.ConvertFromFileName("[ひよどり祥子] 死人の声をきくがよい 07-12se.zip");
-            Assert.Equal("ひよどり祥子", c.Writer);
-            Assert.Equal("死人の声をきくがよい", c.Name);
+            var c = Comic.ConvertFromFileName("[Writer] Title 07-12se.zip");
+            Assert.Equal("Writer", c.Writer);
+            Assert.Equal("Title", c.Name);
             Assert.Equal(7, c.RangeNumber.Value.Start);
             Assert.Equal(12, c.RangeNumber.Value.End);
         }
