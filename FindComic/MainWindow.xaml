@@ -17,7 +17,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <DockPanel Grid.Row="0">
-            <TextBox Grid.Column="0" Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}" Width="300"  />
+            <TextBox Grid.Column="0" Text="{Binding SearchValue, UpdateSourceTrigger=PropertyChanged}" Width="465"  />
         </DockPanel>
         <DataGrid Name="dataGrid" 
                   SelectionUnit="FullRow"
@@ -30,5 +30,6 @@
                 <TextBlock Text="{Binding Status}" />
             </StatusBar>
         </DockPanel>
+        <Button x:Name="clipboardPasteButton" Content="From ClipBoard" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Click="clipboardPasteButton_Click" />
     </Grid>
 </Window>

@@ -8,6 +8,7 @@ namespace FindComic
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -23,6 +24,12 @@ namespace FindComic
                 // 選択行のOriginNameをクリップボードに格納
                 Clipboard.SetText(currentItem.OriginName);
             }
+        }
+
+        private void clipboardPasteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var context = (MainWindowViewModel)this.DataContext;
+            context.SearchValue = Clipboard.GetText();
         }
     }
 }

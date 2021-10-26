@@ -90,6 +90,7 @@ namespace FindComic
             set
             {
                 _SearchValue = value;
+                NotifyPropertyChanged();
                 //ViewSummaryComics = originSummaryComics.Where(x => x.Title.Contains(value)).ToList();
                 NotifyPropertyChanged(nameof(ViewSummaryComics));
             } 
