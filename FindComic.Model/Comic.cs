@@ -35,7 +35,7 @@ namespace FindComic.Model
 
             if (nameStartIndex + 1 == nameEndIndex)
             {
-                return fileName.Substring(nameStartIndex + 2);
+                return fileName[(nameStartIndex + 2)..];
             }
             return fileName.Substring(nameStartIndex + 2, nameEndIndex - nameStartIndex - 2);
         }

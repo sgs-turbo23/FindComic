@@ -30,6 +30,6 @@
                 <TextBlock Text="{Binding Status}" />
             </StatusBar>
         </DockPanel>
-        <Button x:Name="clipboardPasteButton" Content="From ClipBoard" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Click="clipboardPasteButton_Click" />
+        <Button x:Name="ClipboardPasteButton" Content="From ClipBoard" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ClipboardPasteButton_Click" />
     </Grid>
 </Window>

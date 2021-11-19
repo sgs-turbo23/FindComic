@@ -5,7 +5,7 @@ namespace FindComic
     /// <summary>
     /// App.config管理クラス
     /// </summary>
-    static class Config
+    internal static class Config
     {
         /// <summary>
         /// コンストラクタ
@@ -30,7 +30,7 @@ namespace FindComic
             }
         }
 
-        static public string RootPath { get; private set; }
+        public static string RootPath { get; private set; }
 
     }
 }

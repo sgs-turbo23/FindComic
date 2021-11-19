@@ -25,7 +25,7 @@ namespace FindComic
             }
         }
 
-        private void clipboardPasteButton_Click(object sender, RoutedEventArgs e)
+        private void ClipboardPasteButton_Click(object sender, RoutedEventArgs e)
         {
             var context = (MainWindowViewModel)this.DataContext;
             context.SearchValue = Clipboard.GetText();
