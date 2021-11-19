@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using static FindComic.MainWindowViewModel;
+﻿using static FindComic.MainWindowViewModel;
 
 namespace FindComic
 {

@@ -1,13 +1,7 @@
-﻿using FindComic.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using FindComic.Model;
 
 namespace FindComic
 {
