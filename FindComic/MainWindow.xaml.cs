@@ -7,7 +7,7 @@ namespace FindComic
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -20,8 +20,21 @@ namespace FindComic
             var currentItem = (ViewSummaryComic)dataGrid.CurrentItem;
             if (currentItem != null)
             {
-                // 選択行のOriginNameをクリップボードに格納
-                Clipboard.SetText(currentItem.OriginName);
+                var retry = 0;
+                while (retry > 3)
+                {
+                    try
+                    {
+                        // 選択行のOriginNameをクリップボードに格納
+                        Clipboard.SetText(currentItem.OriginName);
+                        // 処理終了
+                        break;
+                    }
+                    catch (Exception)
+                    {
+                        retry++;
+                    }
+                }
             }
         }
 
