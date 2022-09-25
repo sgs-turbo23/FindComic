@@ -1,13 +1,7 @@
-﻿using FindComic.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using FindComic.Model;
 
 namespace FindComic
 {
@@ -48,7 +42,7 @@ namespace FindComic
 
             foreach (var group in comics.GroupBy(c => new { c.Name, c.Writer }))
             {
-                originSummaryComics.Add(new ViewSummaryComic(
+                OriginSummaryComics.Add(new ViewSummaryComic(
                     group.Key.Writer,
                     group.Key.Name,
                     group.Where(g => g.RangeNumber.HasValue).Select(g => g.RangeNumber.Value).ToList(),
@@ -56,14 +50,14 @@ namespace FindComic
             }
 
             // origin~ は全件の内容を保持する
-            originSummaryComics = originSummaryComics.OrderBy(vsc => vsc.Writer).ToList();
+            OriginSummaryComics = OriginSummaryComics.OrderBy(vsc => vsc.Writer).ToList();
         }
 
         #region メンバー
         /// <summary>
         /// 初期値保持用
         /// </summary>
-        private List<ViewSummaryComic> originSummaryComics { get; set; } = new List<ViewSummaryComic>();
+        private List<ViewSummaryComic> OriginSummaryComics { get; set; } = new List<ViewSummaryComic>();
 
         /// <summary>
         /// 画面表示用（インクリメンタルサーチ用）
@@ -73,7 +67,7 @@ namespace FindComic
         { 
             get
             {
-                return originSummaryComics.Where(x => x.Title.Contains(_SearchValue)).ToList();
+                return OriginSummaryComics.Where(x => x.Title.Contains(_SearchValue)).ToList();
             }
         }
         #endregion
@@ -90,12 +84,13 @@ namespace FindComic
             set
             {
                 _SearchValue = value;
+                NotifyPropertyChanged();
                 //ViewSummaryComics = originSummaryComics.Where(x => x.Title.Contains(value)).ToList();
                 NotifyPropertyChanged(nameof(ViewSummaryComics));
             } 
         }
 
-        public string Status { get { return $"シリーズ数:{ViewSummaryComics.Count().ToString()}"; } }
+        public string Status => $"シリーズ数:{ViewSummaryComics.Count}";
 
         #endregion
 

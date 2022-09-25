@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using static FindComic.MainWindowViewModel;
+﻿using static FindComic.MainWindowViewModel;
 
 namespace FindComic
 {
@@ -8,6 +7,7 @@ namespace FindComic
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -20,9 +20,28 @@ namespace FindComic
             var currentItem = (ViewSummaryComic)dataGrid.CurrentItem;
             if (currentItem != null)
             {
-                // 選択行のOriginNameをクリップボードに格納
-                Clipboard.SetText(currentItem.OriginName);
+                var retry = 0;
+                while (retry > 3)
+                {
+                    try
+                    {
+                        // 選択行のOriginNameをクリップボードに格納
+                        Clipboard.SetText(currentItem.OriginName);
+                        // 処理終了
+                        break;
+                    }
+                    catch (Exception)
+                    {
+                        retry++;
+                    }
+                }
             }
+        }
+
+        private void ClipboardPasteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var context = (MainWindowViewModel)this.DataContext;
+            context.SearchValue = Clipboard.GetText();
         }
     }
 }

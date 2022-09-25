@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace FindComic.Model
 {
@@ -40,7 +35,7 @@ namespace FindComic.Model
 
             if (nameStartIndex + 1 == nameEndIndex)
             {
-                return fileName.Substring(nameStartIndex + 2);
+                return fileName[(nameStartIndex + 2)..];
             }
             return fileName.Substring(nameStartIndex + 2, nameEndIndex - nameStartIndex - 2);
         }
