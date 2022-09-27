@@ -21,7 +21,7 @@ namespace FindComic
             if (currentItem != null)
             {
                 var retry = 0;
-                while (retry > 3)
+                while (retry < 3)
                 {
                     try
                     {
