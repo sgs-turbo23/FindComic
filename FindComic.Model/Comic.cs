@@ -84,8 +84,8 @@ namespace FindComic.Model
 
         private static string GetNumberString(string fileName)
         {
-            var matchValue = new StringBuilder(Regex.Match(fileName, @"第?[0-9]{2}(巻|s|b|e|卷)*((-|～|-)第?[0-9]{2})?(巻|s|b|e|卷)* ?\.").Value);
-            var replace = new[] { "第", "巻", ".", "s", "b", "e", "卷", " " };
+            var matchValue = new StringBuilder(Regex.Match(fileName, @"第?[0-9]{2}(巻|s|b|e|A|卷)*((-|～|-)第?[0-9]{2})?(巻|s|b|e|A|卷)* ?\.").Value);
+            var replace = new[] { "第", "巻", ".", "s", "b", "e","A", "卷", " " };
             replace.ToList().ForEach(r => matchValue = matchValue.Replace(r, string.Empty));
             return matchValue.ToString();
         }
